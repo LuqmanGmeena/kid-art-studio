@@ -1,0 +1,274 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to more playful kid-friendly color palette */
+  --background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); /* Soft yellow gradient background */
+  --foreground: oklch(0.145 0 0); /* Main text color - readable gray */
+  --card: oklch(1 0 0); /* Toolbar background - bright white */
+  --card-foreground: oklch(0.145 0 0); /* Toolbar text */
+  --popover: oklch(1 0 0); /* Popover background */
+  --popover-foreground: oklch(0.145 0 0); /* Popover text */
+  --primary: #f59e0b; /* Kid-friendly primary - bright amber */
+  --primary-foreground: oklch(0.985 0 0); /* Button text */
+  --secondary: #06b6d4; /* Kid-friendly secondary - bright cyan */
+  --secondary-foreground: oklch(0.985 0 0); /* Text for highlighted actions */
+  --muted: oklch(0.97 0 0); /* Muted background */
+  --muted-foreground: oklch(0.556 0 0); /* Muted text */
+  --accent: #10b981; /* Kid-friendly accent - bright green */
+  --accent-foreground: oklch(0.985 0 0); /* Text for accents */
+  --destructive: oklch(0.577 0.245 27.325); /* Destructive actions - bright red */
+  --destructive-foreground: oklch(0.985 0 0); /* Text for destructive actions */
+  --border: oklch(0.922 0 0); /* General borders - light gray */
+  --input: oklch(0.922 0 0); /* Input fields - very light gray */
+  --ring: oklch(0.708 0 0); /* Focus ring */
+  --chart-1: oklch(0.646 0.222 41.116); /* Chart color - amber */
+  --chart-2: oklch(0.6 0.118 184.704); /* Chart color - cyan */
+  --chart-3: oklch(0.398 0.07 227.392); /* Chart color - yellow */
+  --chart-4: oklch(0.828 0.189 84.429); /* Chart color - blue */
+  --chart-5: oklch(0.769 0.188 70.08); /* Chart color - purple */
+  --radius: 1rem; /* More rounded corners for kid-friendly design */
+  --sidebar: oklch(0.985 0 0); /* Sidebar background */
+  --sidebar-foreground: oklch(0.145 0 0); /* Sidebar text */
+  --sidebar-primary: oklch(0.205 0 0); /* Sidebar primary actions */
+  --sidebar-primary-foreground: oklch(0.985 0 0); /* Sidebar primary text */
+  --sidebar-accent: oklch(0.97 0 0); /* Sidebar accent */
+  --sidebar-accent-foreground: oklch(0.205 0 0); /* Sidebar accent text */
+  --sidebar-border: oklch(0.922 0 0); /* Sidebar border */
+  --sidebar-ring: oklch(0.708 0 0); /* Sidebar focus ring */
+}
+
+.dark {
+  /* Keeping dark mode but with kid-friendly adjustments */
+  --background: linear-gradient(135deg, #1f2937 0%, #374151 100%); /* Soft dark gradient */
+  --foreground: oklch(0.985 0 0); /* Light text */
+  --card: oklch(0.145 0 0); /* Card background */
+  --card-foreground: oklch(0.985 0 0); /* Card text */
+  --popover: oklch(0.145 0 0); /* Popover background */
+  --popover-foreground: oklch(0.985 0 0); /* Popover text */
+  --primary: #fbbf24; /* Brighter amber for dark mode */
+  --primary-foreground: oklch(0.205 0 0); /* Dark text on bright button */
+  --secondary: #22d3ee; /* Bright cyan for dark mode */
+  --secondary-foreground: oklch(0.205 0 0); /* Dark text */
+  --muted: oklch(0.269 0 0); /* Muted background */
+  --muted-foreground: oklch(0.708 0 0); /* Muted text */
+  --accent: #34d399; /* Bright green for dark mode */
+  --accent-foreground: oklch(0.205 0 0); /* Dark text */
+  --destructive: oklch(0.396 0.141 25.723); /* Softer red for dark mode */
+  --destructive-foreground: oklch(0.985 0 0); /* Light text */
+  --border: oklch(0.269 0 0); /* Border color */
+  --input: oklch(0.269 0 0); /* Input background */
+  --ring: oklch(0.439 0 0); /* Light focus ring */
+  --chart-1: oklch(0.488 0.243 264.376); /* Chart colors adjusted for dark mode */
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  /* Updated font configuration for kid-friendly fonts */
+  --font-sans: var(--font-comic-neue);
+  --font-display: var(--font-baloo);
+  --font-mono: var(--font-comic-neue);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    /* Updated to use gradient background */
+    background: var(--background);
+    color: var(--foreground);
+    transition: all 0.3s ease;
+    font-family: var(--font-sans);
+  }
+
+  .kid-primary {
+    color: #ec4899; /* Bright pink */
+  }
+
+  .bg-kid-primary {
+    background-color: #ec4899; /* Bright pink */
+  }
+
+  .hover\:bg-kid-primary\/90:hover {
+    background-color: rgba(236, 72, 153, 0.9); /* Pink with opacity */
+  }
+
+  .kid-secondary {
+    color: #8b5cf6; /* Purple */
+  }
+
+  .bg-kid-secondary {
+    background-color: #8b5cf6; /* Purple */
+  }
+
+  .kid-accent {
+    color: #06b6d4; /* Cyan */
+  }
+
+  .bg-kid-accent {
+    background-color: #06b6d4; /* Cyan */
+  }
+
+  .kid-text {
+    color: #374151; /* Dark gray for readability */
+  }
+
+  .text-kid-primary {
+    color: #ec4899; /* Bright pink */
+  }
+
+  .text-kid-secondary {
+    color: #8b5cf6; /* Purple */
+  }
+
+  .text-kid-accent {
+    color: #06b6d4; /* Cyan */
+  }
+
+  .text-kid-text {
+    color: #374151; /* Dark gray */
+  }
+
+  .border-kid-primary\/20 {
+    border-color: rgba(236, 72, 153, 0.2); /* Pink border with opacity */
+  }
+
+  .focus\:border-kid-primary:focus {
+    border-color: #ec4899; /* Pink focus border */
+  }
+
+  .hover\:text-kid-primary\/80:hover {
+    color: rgba(236, 72, 153, 0.8); /* Pink text with opacity on hover */
+  }
+
+  .from-kid-primary {
+    --tw-gradient-from: #ec4899; /* Pink gradient start */
+  }
+
+  .via-kid-secondary {
+    --tw-gradient-to: transparent;
+    --tw-gradient-stops: var(--tw-gradient-from), #8b5cf6, var(--tw-gradient-to); /* Purple gradient middle */
+  }
+
+  .to-kid-accent {
+    --tw-gradient-to: #06b6d4; /* Cyan gradient end */
+  }
+
+  /* Enhanced kid-friendly button styles with more playful animations */
+  .kid-button {
+    @apply rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95;
+    min-height: 48px;
+    min-width: 48px;
+    background: linear-gradient(145deg, var(--primary), var(--secondary));
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .kid-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Enhanced canvas container with playful styling */
+  .canvas-container {
+    @apply rounded-2xl shadow-2xl bg-white border-4;
+    border-image: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent)) 1;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  }
+
+  /* Enhanced toolbar with playful background */
+  .toolbar {
+    @apply backdrop-blur-md rounded-2xl shadow-xl border-2;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.8) 100%);
+    border-image: linear-gradient(45deg, var(--primary), var(--accent)) 1;
+  }
+
+  /* Added playful heading styles */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+
+  /* Added fun animations for interactive elements */
+  @keyframes bounce-gentle {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  .animate-bounce-gentle {
+    animation: bounce-gentle 2s infinite;
+  }
+
+  /* Added sparkle effect for special elements */
+  @keyframes sparkle {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.1);
+    }
+  }
+
+  .animate-sparkle {
+    animation: sparkle 1.5s ease-in-out infinite;
+  }
+}
